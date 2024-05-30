@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">FakeStoreDeveemTest</string>
+
+    <string name="products">Products</string>
+    <string name="all">All</string>
+    <string name="cart">Cart</string>
+    <string name="men_s_clothing">Men\'s clothing</string>
+    <string name="jewelry">Jewelry</string>
+    <string name="electronics">Electronics</string>
+    <string name="women_s_clothing">Women\'s clothing</string>
+
+    <string name="categories">Categories</string>
+    <string name="choose_your_preferred">Choose your preferred</string>
+    <string name="decline">Decline</string>
+    <string name="accept">Accept</string>
+
+    <string name="add_to_cart">Add to cart</string>
+    <string name="go_to_cart">Go to cart</string>
+    <string name="add_something">Add something</string>
+    <string name="buy">Buy</string>
+
+    <string name="empty">Empty</string>
+
+    <string name="category">Category</string>
+    <string name="rating">Rating</string>
+    <string name="price">Price</string>
+    <string name="description">Description</string>
+
 </resources>

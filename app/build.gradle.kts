@@ -52,6 +52,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation ("androidx.core:core-splashscreen:1.0.1")
+
     implementation ("com.github.kirich1409:viewbindingpropertydelegate-full:1.5.9")
 
     val nav_version = "2.7.7"
