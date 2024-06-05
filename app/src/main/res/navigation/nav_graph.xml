@@ -2,19 +2,20 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/fragment_home"
-    android:id="@+id/nav_graph">
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_home">
 
     <fragment
         android:id="@+id/fragment_home"
-        tools:layout="@layout/fragment_home"
         android:name="com.dev.fakestoredeveemtest.presentation.screen.home.HomeFragment"
-        />
-
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_card"
+            app:destination="@id/fragment_card" />
+    </fragment>
     <fragment
-        android:id="@+id/fragment_product"
-        tools:layout="@layout/fragment_product"
-        android:name="com.dev.fakestoredeveemtest.presentation.screen.detail.ProductFragment"
-        />
+        android:id="@+id/fragment_card"
+        android:name="com.dev.fakestoredeveemtest.presentation.screen.card.CardFragment"
+        tools:layout="@layout/fragment_card" />
 
 </navigation>

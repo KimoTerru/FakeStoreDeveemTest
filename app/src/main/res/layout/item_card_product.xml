@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp">
+
+        <com.dev.fakestoredeveemtest.presentation.view.AspectRatioImageView
+            android:id="@+id/product_image_rv"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:paddingVertical="16dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/product_image_emp" />
+
+        <View
+            android:layout_width="16dp"
+            android:layout_height="16dp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray_average" />
+
+        <View
+            android:layout_width="16dp"
+            android:layout_height="16dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingVertical="16dp">
+
+            <TextView
+                android:id="@+id/product_name_rv"
+                style="@style/label_large_font_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/product_name_emp"
+                app:layout_constraintBottom_toTopOf="@id/free_space_rv"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/free_space_rv"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@id/container_product_price_rv"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/product_name_rv" />
+
+            <LinearLayout
+                android:id="@+id/container_product_price_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/free_space_rv">
+
+                <TextView
+                    android:id="@+id/product_price_rv"
+                    style="@style/headline_small_font_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/product_price_emp" />
+
+                <TextView
+                    style="@style/title_small_caps_font_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/product_price_value"
+                    android:textColor="@color/gray_middle" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/remove_product_rv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_cart_remove"
+                    tools:ignore="ContentDescription" />
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

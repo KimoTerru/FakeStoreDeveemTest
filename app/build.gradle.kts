@@ -52,6 +52,16 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    // Custom view
+    implementation ("com.hendraanggrian.material:collapsingtoolbarlayout-subtitle:1.5.0")
+
+    val lifecycle_version = "2.8.1"
+
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+
     implementation ("androidx.core:core-splashscreen:1.0.1")
 
     implementation ("com.github.kirich1409:viewbindingpropertydelegate-full:1.5.9")
@@ -59,7 +69,6 @@ dependencies {
     val nav_version = "2.7.7"
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
-
 
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")

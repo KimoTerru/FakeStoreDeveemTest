@@ -7,4 +7,11 @@
     <color name="gray_average">#FFD5D5D5</color>
     <color name="gray_middle">#FF999999</color>
     <color name="gray_dark">#FF555555</color>
+
+    <color name="day_night_color">@color/black</color>
+    <color name="bottom_sheet">@color/white</color>
+    <color name="day_night_background">@color/gray_light</color>
+    
+    <color name="gradient_start">#ECECEC</color>
+    <color name="gradient_center">#80ECECEC</color>"
 </resources>

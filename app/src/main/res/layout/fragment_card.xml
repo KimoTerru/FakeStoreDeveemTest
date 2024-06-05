@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/day_night_background"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="wrap_content"
+        android:layout_height="230dp"
+        android:background="@color/day_night_background"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.SubtitleCollapsingToolbarLayout
+            android:id="@+id/card_collapsing_toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:collapsedTitleGravity="center"
+            app:contentScrim="@color/gray_average"
+            app:expandedTitleMarginBottom="0dp"
+            app:expandedTitleMarginStart="16dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:title="@string/cart">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/card_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                app:layout_collapseMode="pin"
+                app:menu="@menu/empty_menu"
+                app:navigationIcon="@drawable/ic_arrow_back"
+                app:title="app_name" />
+
+            <TextView
+                style="@style/display_small_font_style"
+                android:layout_width="wrap_content"
+                android:layout_height="?actionBarSize"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:drawablePadding="4dp"
+                android:gravity="center_vertical"
+                android:text="@string/market"
+                app:drawableStartCompat="@drawable/ic_app_logo_title" />
+
+        </com.google.android.material.appbar.SubtitleCollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/card_nested_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:visibility="gone"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/products_cache_list_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="true"
+            android:orientation="vertical"
+            android:paddingHorizontal="8dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="90dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_card_product" />
+
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/card_empty_view"
+        style="@style/headline_large_font_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/empty"
+        android:textColor="@color/gray_dark"
+        android:visibility="visible" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/overlay_gradient_topic" />
+
+    <Button
+        android:id="@+id/buy_basket_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="16dp"
+        android:gravity="start|center_vertical"
+        android:text="@string/add_to_cart" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

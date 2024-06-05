@@ -1,13 +1,13 @@
 <resources>
-    <string name="app_name">FakeStoreDeveemTest</string>
+    <string name="app_name">FakeStore</string>
 
     <string name="products">Products</string>
     <string name="all">All</string>
     <string name="cart">Cart</string>
-    <string name="men_s_clothing">Men\'s clothing</string>
+    <string name="men_s_clothing">Men\'s clothing</string>
     <string name="jewelry">Jewelry</string>
     <string name="electronics">Electronics</string>
-    <string name="women_s_clothing">Women\'s clothing</string>
+    <string name="women_s_clothing">Women\'s clothing</string>
 
     <string name="categories">Categories</string>
     <string name="choose_your_preferred">Choose your preferred</string>
@@ -25,5 +25,13 @@
     <string name="rating">Rating</string>
     <string name="price">Price</string>
     <string name="description">Description</string>
+
+    <string name="market">market</string>
+
+    <string name="product_name_emp">Mens Casual \nPremium Slim F\nit T-Shirts</string>
+    <string name="product_price_value">$</string>
+    <string name="product_price_emp">109.95</string>
+    <string name="mens_product_emp">Mens Casual Slim Fit</string>
+    <string name="description_emp">The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.</string>
 
 </resources>
