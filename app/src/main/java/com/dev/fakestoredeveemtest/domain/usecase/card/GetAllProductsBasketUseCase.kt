@@ -1,4 +1,4 @@
-package com.dev.fakestoredeveemtest.domain.usecase.basket
+package com.dev.fakestoredeveemtest.domain.usecase.card
 
 import com.dev.fakestoredeveemtest.domain.models.ProductModel
 import com.dev.fakestoredeveemtest.domain.repository.ProductBasketRepository

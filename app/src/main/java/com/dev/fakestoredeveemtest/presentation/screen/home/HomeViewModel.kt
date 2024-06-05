@@ -10,6 +10,7 @@ import com.dev.fakestoredeveemtest.domain.models.ProductModel
 import com.dev.fakestoredeveemtest.domain.usecase.home.HomeUseCase
 import com.dev.fakestoredeveemtest.util.BuyButtonType
 import com.dev.fakestoredeveemtest.util.ProductCategoriesType
+import com.dev.fakestoredeveemtest.util.ScreenType
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -23,27 +24,16 @@ class HomeViewModel @Inject constructor(
     private val _productModelMutableLiveData = MutableLiveData<List<ProductModel>>()
     val productModelLiveData: LiveData<List<ProductModel>> = _productModelMutableLiveData
 
-    init {
-        getProducts()
-    }
+    private val _stateScreen = MutableLiveData<ScreenType>(ScreenType.EmptyBox)
+    val stateScreen: LiveData<ScreenType> = _stateScreen
 
-    private fun getProducts() = viewModelScope.launch {
-        try {
-            if (homeUseCase.getDownloadedStateProducts.invoke()) {
-                val productListCache = homeUseCase.getProductsCacheUseCase.invoke()
-                _productModelMutableLiveData.postValue(productListCache)
-            } else {
-                val productList = homeUseCase.getProductsNetworkUseCase.invoke()
-                if (productList.isNotEmpty()) {
-                    homeUseCase.saveDownloadedStateProducts.invoke(true)
-                    _productModelMutableLiveData.postValue(productList)
-                    homeUseCase.saveProductsCacheUseCase.invoke(productList)
-                } else {
-                    homeUseCase.saveDownloadedStateProducts.invoke(false)
-                }
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
+    fun getProducts() = viewModelScope.launch {
+        val productListCache = homeUseCase.getProductsCacheUseCase.invoke()
+        if (productListCache.isNotEmpty()) {
+            _stateScreen.value = ScreenType.Content
+            _productModelMutableLiveData.postValue(productListCache)
+        } else {
+            _stateScreen.value = ScreenType.EmptyBox
         }
     }
 
@@ -68,7 +58,9 @@ class HomeViewModel @Inject constructor(
 
             else -> {
                 val productListByCategories =
-                    homeUseCase.getProductsByCategoriesUseCase.invoke(currentCategoryMutableLiveData.value!!.category)
+                    homeUseCase.getProductsByCategoriesCacheUseCase.invoke(
+                        currentCategoryMutableLiveData.value!!.category
+                    )
                 _productModelMutableLiveData.value = productListByCategories
             }
         }

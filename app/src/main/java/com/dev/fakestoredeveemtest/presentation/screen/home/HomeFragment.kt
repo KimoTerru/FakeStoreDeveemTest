@@ -36,7 +36,17 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         setupHomeScreenContent()
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getProducts()
+    }
+
     private fun setupHomeScreenContent() = viewBinding.apply {
+
+        viewModel.stateScreen.observe(viewLifecycleOwner) {
+            homeNestedScroll.visibility = it.showContent
+            homeEmptyView.visibility = it.showEmptyBox
+        }
 
         viewModel.selectedCategoryLiveData.observe(viewLifecycleOwner) { category ->
             homeCollapsingToolbarLayout.subtitle = category.category.uppercase()

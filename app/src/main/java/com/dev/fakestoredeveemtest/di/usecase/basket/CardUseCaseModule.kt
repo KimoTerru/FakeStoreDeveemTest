@@ -1,10 +1,10 @@
 package com.dev.fakestoredeveemtest.di.usecase.basket
 
 import com.dev.fakestoredeveemtest.domain.repository.ProductBasketRepository
-import com.dev.fakestoredeveemtest.domain.usecase.basket.CardUseCase
-import com.dev.fakestoredeveemtest.domain.usecase.basket.CleanBasketUseCase
-import com.dev.fakestoredeveemtest.domain.usecase.basket.DeleteProductBasketUseCase
-import com.dev.fakestoredeveemtest.domain.usecase.basket.GetAllProductsBasketUseCase
+import com.dev.fakestoredeveemtest.domain.usecase.card.CardUseCase
+import com.dev.fakestoredeveemtest.domain.usecase.card.CleanBasketUseCase
+import com.dev.fakestoredeveemtest.domain.usecase.card.DeleteProductBasketUseCase
+import com.dev.fakestoredeveemtest.domain.usecase.card.GetAllProductsBasketUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

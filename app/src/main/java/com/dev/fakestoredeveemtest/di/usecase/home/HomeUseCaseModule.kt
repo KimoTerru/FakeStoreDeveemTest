@@ -2,17 +2,11 @@ package com.dev.fakestoredeveemtest.di.usecase.home
 
 import com.dev.fakestoredeveemtest.domain.repository.ProductBasketRepository
 import com.dev.fakestoredeveemtest.domain.repository.ProductCacheRepository
-import com.dev.fakestoredeveemtest.domain.repository.ProductRepository
-import com.dev.fakestoredeveemtest.domain.repository.ProductSharedRepository
-import com.dev.fakestoredeveemtest.domain.usecase.home.GetDownloadedStateProducts
-import com.dev.fakestoredeveemtest.domain.usecase.home.GetProductByIdUseCase
-import com.dev.fakestoredeveemtest.domain.usecase.home.GetProductsByCategoriesUseCase
+import com.dev.fakestoredeveemtest.domain.usecase.home.GetProductByIdCacheUseCase
+import com.dev.fakestoredeveemtest.domain.usecase.home.GetProductsByCategoriesCacheUseCase
 import com.dev.fakestoredeveemtest.domain.usecase.home.GetProductsCacheUseCase
-import com.dev.fakestoredeveemtest.domain.usecase.home.GetProductsNetworkUseCase
 import com.dev.fakestoredeveemtest.domain.usecase.home.HomeUseCase
-import com.dev.fakestoredeveemtest.domain.usecase.home.SaveDownloadedStateProducts
 import com.dev.fakestoredeveemtest.domain.usecase.home.SaveProductToBasketUseCase
-import com.dev.fakestoredeveemtest.domain.usecase.home.SaveProductsCacheUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,24 +21,14 @@ class HomeUseCaseModule {
     @Singleton
     fun provideHomeUseCase(
         getProductsCacheUseCase: GetProductsCacheUseCase,
-        getProductByIdUseCase: GetProductByIdUseCase,
-        getProductsByCategoriesUseCase: GetProductsByCategoriesUseCase,
-        saveProductsCacheUseCase: SaveProductsCacheUseCase,
-        getProductsNetworkUseCase: GetProductsNetworkUseCase,
-        getDownloadedStateProducts: GetDownloadedStateProducts,
-        saveDownloadedStateProducts: SaveDownloadedStateProducts,
+        getProductByIdCacheUseCase: GetProductByIdCacheUseCase,
+        getProductsByCategoriesCacheUseCase: GetProductsByCategoriesCacheUseCase,
         saveProductToBasketUseCase: SaveProductToBasketUseCase
     ): HomeUseCase {
         return HomeUseCase(
             getProductsCacheUseCase = getProductsCacheUseCase,
-            getProductByIdUseCase = getProductByIdUseCase,
-            saveProductsCacheUseCase = saveProductsCacheUseCase,
-
-            getProductsNetworkUseCase = getProductsNetworkUseCase,
-
-            getDownloadedStateProducts = getDownloadedStateProducts,
-            saveDownloadedStateProducts = saveDownloadedStateProducts,
-            getProductsByCategoriesUseCase = getProductsByCategoriesUseCase,
+            getProductByIdCacheUseCase = getProductByIdCacheUseCase,
+            getProductsByCategoriesCacheUseCase = getProductsByCategoriesCacheUseCase,
             saveProductToBasketUseCase = saveProductToBasketUseCase
         )
     }
@@ -63,49 +47,9 @@ class HomeUseCaseModule {
     @Singleton
     fun provideGetProductByIdUseCase(
         productCacheRepository: ProductCacheRepository
-    ): GetProductByIdUseCase {
-        return GetProductByIdUseCase(
+    ): GetProductByIdCacheUseCase {
+        return GetProductByIdCacheUseCase(
             productCacheRepository = productCacheRepository
-        )
-    }
-
-    @Provides
-    @Singleton
-    fun provideSaveProductUseCase(
-        productCacheRepository: ProductCacheRepository
-    ): SaveProductsCacheUseCase {
-        return SaveProductsCacheUseCase(
-            productCacheRepository = productCacheRepository
-        )
-    }
-
-    @Provides
-    @Singleton
-    fun provideGetProductsNetworkUseCase(
-        productRepository: ProductRepository
-    ): GetProductsNetworkUseCase {
-        return GetProductsNetworkUseCase(
-            productRepository = productRepository
-        )
-    }
-
-    @Provides
-    @Singleton
-    fun provideGetDownloadedStateProducts(
-        repository: ProductSharedRepository
-    ): GetDownloadedStateProducts {
-        return GetDownloadedStateProducts(
-            repository = repository
-        )
-    }
-
-    @Provides
-    @Singleton
-    fun provideSaveDownloadedStateProducts(
-        repository: ProductSharedRepository
-    ): SaveDownloadedStateProducts {
-        return SaveDownloadedStateProducts(
-            repository = repository
         )
     }
 
@@ -113,8 +57,8 @@ class HomeUseCaseModule {
     @Singleton
     fun provideGetProductsByCategoriesUseCase(
         repository: ProductCacheRepository
-    ): GetProductsByCategoriesUseCase {
-        return GetProductsByCategoriesUseCase(
+    ): GetProductsByCategoriesCacheUseCase {
+        return GetProductsByCategoriesCacheUseCase(
             productCacheRepository = repository
         )
     }

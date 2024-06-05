@@ -3,7 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragment_home">
+    app:startDestination="@id/fragment_splash">
+
+    <fragment
+        android:id="@+id/fragment_splash"
+        android:name="com.dev.fakestoredeveemtest.presentation.screen.splash.SplashFragment"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_fragment_splash_to_fragment_home"
+            app:destination="@id/fragment_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/fragment_home"
@@ -13,6 +22,7 @@
             android:id="@+id/action_fragment_home_to_fragment_card"
             app:destination="@id/fragment_card" />
     </fragment>
+
     <fragment
         android:id="@+id/fragment_card"
         android:name="com.dev.fakestoredeveemtest.presentation.screen.card.CardFragment"

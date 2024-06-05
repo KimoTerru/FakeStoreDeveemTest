@@ -1,4 +1,4 @@
-package com.dev.fakestoredeveemtest.domain.usecase.home
+package com.dev.fakestoredeveemtest.domain.usecase.splash
 
 import com.dev.fakestoredeveemtest.domain.models.ProductModel
 import com.dev.fakestoredeveemtest.domain.repository.ProductCacheRepository

@@ -1,4 +1,4 @@
-package com.dev.fakestoredeveemtest.domain.usecase.basket
+package com.dev.fakestoredeveemtest.domain.usecase.card
 
 data class CardUseCase(
     val getAllProductBasketUseCase: GetAllProductsBasketUseCase,

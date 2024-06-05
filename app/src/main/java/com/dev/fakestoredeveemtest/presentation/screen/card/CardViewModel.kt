@@ -8,9 +8,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
 import com.dev.fakestoredeveemtest.domain.models.ProductModel
-import com.dev.fakestoredeveemtest.domain.usecase.basket.CardUseCase
+import com.dev.fakestoredeveemtest.domain.usecase.card.CardUseCase
 import com.dev.fakestoredeveemtest.util.BuyButtonType
-import com.dev.fakestoredeveemtest.util.CardScreenType
+import com.dev.fakestoredeveemtest.util.ScreenType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -23,17 +23,17 @@ class CardViewModel @Inject constructor(
     private val _productModelMutableLiveData = MutableLiveData<List<ProductModel>>()
     val productModelLiveData: LiveData<List<ProductModel>> = _productModelMutableLiveData
 
-    private val _stateScreen = MutableLiveData<CardScreenType>(CardScreenType.EmptyBox)
-    val stateScreen: LiveData<CardScreenType> = _stateScreen
+    private val _stateScreen = MutableLiveData<ScreenType>(ScreenType.EmptyBox)
+    val stateScreen: LiveData<ScreenType> = _stateScreen
 
     fun getAllProductsBasket() = viewModelScope.launch {
         val basketList = cardUseCase.getAllProductBasketUseCase.invoke()
         if (basketList.isNotEmpty()) {
-            _stateScreen.value = CardScreenType.Content
+            _stateScreen.value = ScreenType.Content
             _productModelMutableLiveData.value = basketList
             _stateStateBuy.value = BuyButtonType.Buy
         } else {
-            _stateScreen.value = CardScreenType.EmptyBox
+            _stateScreen.value = ScreenType.EmptyBox
             _stateStateBuy.value = BuyButtonType.AddToCard
         }
     }

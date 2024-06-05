@@ -1,7 +1,6 @@
 package com.dev.fakestoredeveemtest.di
 
 import android.content.Context
-import android.content.SharedPreferences
 import androidx.room.Room
 import com.dev.fakestoredeveemtest.data.local.productcache.ProductCacheDao
 import com.dev.fakestoredeveemtest.data.local.productcache.ProductCacheDatabase
@@ -42,11 +41,5 @@ class LocalModule {
         return Room.databaseBuilder(
             appContext, BasketDatabase::class.java, AppConstants.PRODUCTS_BASKET_NAME
         ).build()
-    }
-
-    @Provides
-    @Singleton
-    fun provideUserProductSharedPreferences(@ApplicationContext appContext: Context): SharedPreferences {
-        return appContext.getSharedPreferences("saveSingleProduct", Context.MODE_PRIVATE)
     }
 }
