@@ -84,7 +84,7 @@
         android:layout_gravity="center"
         android:text="@string/empty"
         android:textColor="@color/gray_dark"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <View
         android:layout_width="match_parent"
